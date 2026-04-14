@@ -50,6 +50,7 @@ require("mason-tool-installer").setup({
         "yaml-language-server",
         "taplo",
         "gh-actions-language-server",
+        "marksman",
 
         -- Formatters & Linters
         "ruff",
@@ -74,6 +75,7 @@ require("conform").setup({
         c = { "clang-format" },
         cpp = { "clang-format" },
         yaml = { "prettier" },
+        markdown = { "prettier" },
     },
 })
 
@@ -84,6 +86,8 @@ vim.pack.add({
     { src = "https://github.com/nvim-tree/nvim-web-devicons" },
     { src = "https://github.com/folke/which-key.nvim" },
     { src = "https://github.com/folke/snacks.nvim" },
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+    { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
 })
 
 require("nvim-web-devicons").setup()
@@ -102,6 +106,20 @@ require("snacks").setup({
     quickfile = { enabled = true },
     scope = { enabled = true },
     statuscolumn = { enabled = true },
+})
+require("render-markdown").setup({
+    code = {
+        sign = false,
+        width = "block",
+        right_pad = 1,
+    },
+    heading = {
+        sign = false,
+        icons = {},
+    },
+    checkbox = {
+        enabled = true,
+    },
 })
 
 -- Autocmds
@@ -131,6 +149,7 @@ vim.api.nvim_create_autocmd("User", {
             "yamlls",
             "taplo",
             "gh_actions_ls",
+            "marksman",
         })
     end,
 })
