@@ -51,12 +51,14 @@ require("mason-tool-installer").setup({
         "taplo",
         "gh-actions-language-server",
         "marksman",
+        "neocmakelsp",
 
         -- Formatters & Linters
         "ruff",
         "stylua",
         "clang-format",
         "prettier",
+        "gersemi",
     },
     run_on_start = true,
 })
@@ -76,6 +78,7 @@ require("conform").setup({
         cpp = { "clang-format" },
         yaml = { "prettier" },
         markdown = { "prettier" },
+        cmake = { "gersemi" },
     },
 })
 
@@ -150,6 +153,7 @@ vim.api.nvim_create_autocmd("User", {
             "taplo",
             "gh_actions_ls",
             "marksman",
+            "neocmake",
         })
     end,
 })
