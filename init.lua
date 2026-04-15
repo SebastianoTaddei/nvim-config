@@ -23,6 +23,17 @@ vim.opt.showmode = true
 vim.opt.cmdheight = 0
 vim.o.laststatus = 0
 
+vim.diagnostic.config({
+    virtual_text = {
+        spacing = 2,
+        prefix = "●",
+    },
+    signs = true,
+    underline = true,
+    update_in_insert = false,
+    severity_sort = true,
+})
+
 -- Colorscheme
 vim.pack.add({
     { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
@@ -68,7 +79,22 @@ require("blink.cmp").setup({
         ["<Tab>"] = { "select_next", "fallback" },
         ["<S-Tab>"] = { "select_prev", "fallback" },
     },
-    completion = { list = { selection = { preselect = false, auto_insert = false } } },
+    completion = {
+        list = { selection = { preselect = false, auto_insert = false } },
+        documentation = {
+            auto_show = true,
+            auto_show_delay_ms = 200,
+        },
+        ghost_text = {
+            enabled = true,
+        },
+    },
+    signature = {
+        enabled = true,
+        window = {
+            border = "rounded",
+        },
+    },
 })
 require("conform").setup({
     formatters_by_ft = {
