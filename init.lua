@@ -88,6 +88,11 @@ require("blink.cmp").setup({
         ghost_text = {
             enabled = true,
         },
+        menu = {
+            draw = {
+                treesitter = { "lsp" },
+            },
+        },
     },
     signature = {
         enabled = true,
