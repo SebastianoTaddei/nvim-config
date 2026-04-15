@@ -179,6 +179,8 @@ vim.api.nvim_create_autocmd("LspProgress", {
 
 -- Keymaps
 vim.keymap.set("n", "<Esc><Esc>", "<cmd>nohlsearch<CR>")
+vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
 require("which-key").add({
     {
         mode = "n",
