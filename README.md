@@ -6,5 +6,7 @@ My own neovim config from scratch.
 
 - `neovim` >= 0.12
 - `npm` for some mason packages
+- `ripgrep`
+- `fzf`
 - some tools like `fzf` which I will remember when I install this on other
   machines.
