@@ -122,6 +122,7 @@ vim.pack.add({
     { src = "https://github.com/folke/snacks.nvim" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
     { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
+    { src = "https://github.com/danymat/neogen" },
 })
 
 require("nvim-web-devicons").setup()
@@ -153,6 +154,16 @@ require("render-markdown").setup({
     },
     checkbox = {
         enabled = true,
+    },
+})
+require("neogen").setup({
+    snippet_engine = "nvim",
+    languages = {
+        python = {
+            template = {
+                annotation_convention = "reST",
+            },
+        },
     },
 })
 
@@ -233,6 +244,50 @@ require("which-key").add({
                 end
             end,
             desc = "toggle statusline",
+        },
+        {
+            "<leader>c",
+            desc = "code",
+        },
+        {
+            "<leader>cn",
+            desc = "neogen",
+        },
+        {
+            "<leader>cnf",
+            function()
+                require("neogen").generate({
+                    type = "func",
+                })
+            end,
+            desc = "annotate function",
+        },
+        {
+            "<leader>cnt",
+            function()
+                require("neogen").generate({
+                    type = "type",
+                })
+            end,
+            desc = "annotate type",
+        },
+        {
+            "<leader>cnc",
+            function()
+                require("neogen").generate({
+                    type = "class",
+                })
+            end,
+            desc = "annotate class",
+        },
+        {
+            "<leader>cnF",
+            function()
+                require("neogen").generate({
+                    type = "file",
+                })
+            end,
+            desc = "annotate file",
         },
     },
 })
