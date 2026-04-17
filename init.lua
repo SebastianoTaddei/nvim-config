@@ -205,20 +205,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         require("conform").format({ async = false, lsp_fallback = true })
     end,
 })
-vim.api.nvim_create_autocmd("LspProgress", {
-    ---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
-    callback = function(ev)
-        local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
-        vim.notify(vim.lsp.status(), "info", {
-            id = "lsp_progress",
-            title = "LSP Progress",
-            opts = function(notif)
-                notif.icon = ev.data.params.value.kind == "end" and " "
-                    or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
-            end,
-        })
-    end,
-})
 
 -- Keymaps
 vim.keymap.set("n", "<Esc><Esc>", "<cmd>nohlsearch<CR>")
