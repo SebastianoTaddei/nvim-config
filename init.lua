@@ -109,6 +109,7 @@ require("conform").setup({
         cpp = { "clang-format" },
         yaml = { "prettier" },
         markdown = { "prettier" },
+        toml = { "taplo" },
         cmake = { "gersemi" },
     },
 })
