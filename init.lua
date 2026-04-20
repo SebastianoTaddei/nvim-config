@@ -125,6 +125,7 @@ vim.pack.add({
     { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
     { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
     { src = "https://github.com/danymat/neogen" },
+    { src = "https://github.com/folke/todo-comments.nvim" },
 })
 
 require("nvim-web-devicons").setup()
@@ -168,6 +169,7 @@ require("neogen").setup({
         },
     },
 })
+require("todo-comments").setup()
 
 -- Autocmds
 vim.api.nvim_create_autocmd("User", {
