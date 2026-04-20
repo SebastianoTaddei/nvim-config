@@ -205,6 +205,11 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         require("conform").format({ async = false, lsp_fallback = true })
     end,
 })
+vim.api.nvim_create_autocmd("TextYankPost", {
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+})
 
 -- Keymaps
 vim.keymap.set("n", "<Esc><Esc>", "<cmd>nohlsearch<CR>")
