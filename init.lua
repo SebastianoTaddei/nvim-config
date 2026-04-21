@@ -122,10 +122,10 @@ vim.pack.add({
     { src = "https://github.com/nvim-tree/nvim-web-devicons" },
     { src = "https://github.com/folke/which-key.nvim" },
     { src = "https://github.com/folke/snacks.nvim" },
-    { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
     { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
     { src = "https://github.com/danymat/neogen" },
     { src = "https://github.com/folke/todo-comments.nvim" },
+    { src = "https://github.com/linux-cultist/venv-selector.nvim" },
 })
 
 require("nvim-web-devicons").setup()
@@ -170,6 +170,7 @@ require("neogen").setup({
     },
 })
 require("todo-comments").setup()
+require("venv-selector").setup()
 
 -- Autocmds
 vim.api.nvim_create_autocmd("User", {
@@ -211,6 +212,18 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()
         vim.highlight.on_yank()
+    end,
+})
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "<filetype>" },
+    callback = function()
+        vim.treesitter.start()
+    end,
+})
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "python", "lua", "c", "cpp", "yaml", "toml", "markdown", "cmake" },
+    callback = function()
+        vim.treesitter.start()
     end,
 })
 
