@@ -191,7 +191,7 @@ vim.api.nvim_create_autocmd("User", {
             settings = {
                 Lua = {
                     diagnostics = {
-                        globals = { "vim" },
+                        globals = { "vim", "Snacks" },
                     },
                     workspace = {
                         library = {
