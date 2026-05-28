@@ -75,6 +75,7 @@ require("mason-tool-installer").setup({
         "gh-actions-language-server",
         "marksman",
         "neocmakelsp",
+        "zls",
 
         -- Formatters & Linters
         "ruff",
@@ -123,6 +124,7 @@ require("conform").setup({
         markdown = { "prettier" },
         toml = { "taplo" },
         cmake = { "gersemi" },
+        zig = { "zigfmt" },
     },
 })
 
@@ -212,6 +214,7 @@ vim.api.nvim_create_autocmd("User", {
             "gh_actions_ls",
             "marksman",
             "neocmake",
+            "zls",
         })
     end,
 })
