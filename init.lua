@@ -76,6 +76,7 @@ require("mason-tool-installer").setup({
         "marksman",
         "neocmakelsp",
         "zls",
+        "ols",
 
         -- Formatters & Linters
         "ruff",
@@ -125,6 +126,7 @@ require("conform").setup({
         toml = { "taplo" },
         cmake = { "gersemi" },
         zig = { "zigfmt" },
+        oding = { "odinfmt" },
     },
 })
 
@@ -215,6 +217,7 @@ vim.api.nvim_create_autocmd("User", {
             "marksman",
             "neocmake",
             "zls",
+            "ols",
         })
     end,
 })
